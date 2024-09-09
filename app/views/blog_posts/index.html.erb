@@ -1,0 +1,11 @@
+<h1 class="text-center text-sm text-gray">Blogs</h1>
+<% @blog_posts.each do |blog_post| %>
+    <div class="bg-grey-100">
+        <h2><%= link_to blog_post.title, blog_post %></h2>
+        <%= blog_post.body %>
+        <%= link_to "Edit", edit_blog_post_path(blog_post) %>
+        <%= link_to "Show", blog_post%>
+        <%= button_to "Delete", blog_post, method: :delete, data: {turbo_confirm: "Are you sure"} %>
+    </div>
+<% end %>
+<%= link_to "New", new_blog_post_path%>
